@@ -10,11 +10,7 @@ export class Api {
     const response = await fetch(
       "https://api-blog-m2.herokuapp.com/user/register",
       requestOptions
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+    ).then((res) => res.json());
     return response;
   }
 
@@ -80,11 +76,7 @@ export class Api {
     const response = await fetch(
       "https://api-blog-m2.herokuapp.com/post",
       requestOptions
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+    ).then((res) => res.json());
     return response;
   }
 

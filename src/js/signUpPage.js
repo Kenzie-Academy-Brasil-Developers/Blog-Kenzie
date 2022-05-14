@@ -4,7 +4,7 @@ import { singInPage } from "./signInPage.js";
 export function signUpPage() {
   setSignUpInnerHTML();
   const buttonSignUp = document.querySelector("#sign-up");
-  buttonSignUp.addEventListener("click", (e) => {
+  buttonSignUp.addEventListener("click", async (e) => {
     e.preventDefault();
     const signUpData = {
       username: document.querySelector('[name="username"]').value,
@@ -12,9 +12,12 @@ export function signUpPage() {
       avatarUrl: document.querySelector('[name="avatarUrl"]').value,
       password: document.querySelector('[name="password"]').value,
     };
-    console.log(signUpData);
-    Api.createUser(signUpData);
-    if (Api.createUser(signUpData).then((res) => res.status !== "error")) {
+    const response = await Api.createUser(signUpData);
+    if (response.status == "error") {
+      let errorMessage = `<p class="text-red-500">Algo de errado não está certo</p>`;
+      document.querySelector("footer").innerHTML += errorMessage;
+      console.log(response);
+    } else if (response.id != undefined) {
       singInPage();
     }
   });

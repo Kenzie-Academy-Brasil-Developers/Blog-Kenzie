@@ -98,7 +98,7 @@ export class Api {
     const response = await fetch(
       "https://api-blog-m2.herokuapp.com/post/" + id,
       requestOptions
-    ).then((res) => res.json());
+    );
     return response;
   }
 

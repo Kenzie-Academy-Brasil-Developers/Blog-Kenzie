@@ -50,8 +50,8 @@ async function setMainPageInnerHTML() {
     });
   });
   buttonDeleteArray.forEach((button) => {
-    button.addEventListener("click", () => {
-      Api.deletePost(button.id);
+    button.addEventListener("click", async () => {
+      await Api.deletePost(button.id);
       mainPage();
     });
   });

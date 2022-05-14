@@ -76,7 +76,7 @@ async function setHTMLPosts() {
     const user = await Api.getUser(post.owner.id);
     let deleteAndEditHTML = "";
     if (user.id == window.localStorage.getItem("id")) {
-      deleteAndEditHTML = `<button id="${post.id}" type="button" class="delete-button hover:text-red-500 transition-colors text-sm">Delete</button>
+      deleteAndEditHTML = `<button id="${post.id}" type="button" class="delete-button bg-red-500 rounded p-1 hover:text-red-500 hover:bg-white transition-colors text-sm">Delete</button>
           <button id="${post.id}" type="button" class="edit-button hover:text-neutral-400 transition-colors text-sm">Edit</button>`;
     }
     posts.push(

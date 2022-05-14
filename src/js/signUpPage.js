@@ -1,3 +1,4 @@
+import { Api } from "./modules/Api.js";
 import { singInPage } from "./signInPage.js";
 
 export function signUpPage() {
@@ -13,7 +14,7 @@ export function signUpPage() {
     };
     console.log(signUpData);
     Api.createUser(signUpData);
-    if (!Api.createUser(signUpData).then((res) => res.status === "error")) {
+    if (Api.createUser(signUpData).then((res) => res.status !== "error")) {
       singInPage();
     }
   });
